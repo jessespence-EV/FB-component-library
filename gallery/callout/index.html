@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Callouts | Funding Bay components</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<link rel="stylesheet" href="../gallery.css">
+</head><body>
+<a class="g-skip" href="#main">Skip to content</a>
+<header class="g-head"><div class="g-head-in">
+  <a class="g-brand" href="../">Funding Bay <span>components</span></a>
+  <nav class="g-nav" aria-label="Library"><a href="../">All components</a><a href="../../dist/preview.html">One-page preview</a><a href="../../dist/fb.css">fb.css</a><a href="../../dist/fb.js">fb.js</a></nav>
+</div></header>
+<main class="g-main" id="main">
+<a class="g-back" href="../">← All components</a>
+<h1>Callouts</h1>
+<p class="g-lead">Warning and tip notes that highlight a key point next to the text.</p>
+<div class="g-tags" style="margin-bottom:1.4rem"><span class="g-tag">HTML and CSS only</span></div>
+
+<section class="g-panel" aria-labelledby="demo-h">
+  <h2 id="demo-h" style="margin-top:0">Live demo</h2>
+  <div class="g-toolbar">
+    <div class="g-seg" role="group" aria-label="Demo width">
+      <button type="button" data-g-width="full" aria-pressed="true">Desktop</button>
+      <button type="button" data-g-width="375" aria-pressed="false">Mobile 375px</button>
+    </div>
+    <div class="g-actions">
+      <button type="button" class="fb-btn" data-g-copy="code-html" data-g-label="HTML">Copy HTML</button>
+      <button type="button" class="fb-btn fb-btn--ghost" data-g-copy="code-css" data-g-label="CSS">Copy CSS</button>
+    </div>
+  </div>
+  <p class="g-status" data-g-status aria-live="polite"></p>
+  <div class="g-frame-wrap"><iframe class="g-frame" data-g-frame data-g-autoheight src="demo.html" title="Callouts live demo" loading="lazy"></iframe></div>
+  
+</section>
+
+<section class="g-notes" aria-labelledby="use-h">
+  <h2 id="use-h">How to use it</h2>
+  <p><strong>Copy HTML</strong> gives you the markup and its script, ready for a WordPress Custom HTML block. Swap the demo text for the post's own.
+  <strong>Copy CSS</strong> gives the shared base styles plus this component's styles. If <code>fb.css</code> is already in Additional CSS, you only need the HTML.</p>
+  <p>A highlighted note with an icon. Two variants: <code>warn</code> (amber, &quot;!&quot;) and <code>tip</code> (coral, &quot;i&quot;).</p>
+<ul>
+<li><strong>Where it goes:</strong> next to the paragraph it qualifies.</li>
+<li><strong>Text it needs:</strong> a short bold title and one or two sentences.</li>
+<li><strong>JavaScript:</strong> none.</li>
+<li><strong>Known limits:</strong> the amber and pale backgrounds are hardcoded rather than tokens.</li>
+</ul>
+</section>
+
+<section aria-labelledby="code-h">
+  <h2 id="code-h">Code</h2>
+  <details class="g-code"><summary>HTML (paste into a Custom HTML block)</summary><pre id="code-html"><code>&lt;!-- Warning callout. Place after the senior debt section, or under the worked example. --&gt;
+&lt;div class=&quot;fb-block fb-callout warn&quot;&gt;
+  &lt;div class=&quot;fb-ci-ico&quot;&gt;!&lt;/div&gt;
+  &lt;div&gt;&lt;b class=&quot;fb-ct&quot;&gt;Balanced is not the same as affordable&lt;/b&gt;&lt;p&gt;A sources-and-uses schedule that adds up does not prove the repayment profile works. Always model monthly cash flow across every funding layer.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Tip callout. Place under the Readiness Checklist heading or in &quot;Documents to Prepare&quot;. --&gt;
+&lt;div class=&quot;fb-block fb-callout tip&quot;&gt;
+  &lt;div class=&quot;fb-ci-ico&quot;&gt;i&lt;/div&gt;
+  &lt;div&gt;&lt;b class=&quot;fb-ct&quot;&gt;Keep your assumptions consistent&lt;/b&gt;&lt;p&gt;Use the same numbers across the business plan, forecast and funding request. Differences between documents can delay lender assessment.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></details>
+  <details class="g-code"><summary>CSS (base styles plus this component)</summary><pre id="code-css"><code>/* Funding Bay blog components: design tokens and shared base styles.
+   Everything is prefixed fb- so it will not clash with the theme. */
+
+:root{
+  --fb-navy:#11323F; --fb-navy-2:#1c4a5d; --fb-teal:#EE5B3E; --fb-teal-d:#D9472B;
+  --fb-cream:#F3F6FB; --fb-cream-d:#CDDEE6; --fb-grey:#6B7280; --fb-text:#1F2937;
+  --fb-gold:#7FA6B8; --fb-white:#fff;
+  --fb-serif:'Hind Madurai',system-ui,sans-serif; --fb-sans:'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+.fb-block,.fb-block *{box-sizing:border-box}
+.fb-block{font-family:var(--fb-sans);color:var(--fb-text);line-height:1.6;margin:2.2rem 0;font-size:16px}
+.fb-block h3,.fb-block h4{font-family:var(--fb-serif);font-weight:700;color:var(--fb-navy);margin:0 0 .5rem;line-height:1.3}
+.fb-block p{margin:0 0 1rem}
+.fb-block a{text-decoration:none}
+.fb-eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--fb-teal-d);margin-bottom:.6rem}
+.fb-btn{display:inline-block;background:var(--fb-teal);color:#fff !important;padding:.8rem 1.5rem;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;transition:background .2s,transform .2s;text-decoration:none !important;font-family:var(--fb-sans)}
+.fb-btn:hover{background:var(--fb-teal-d);transform:translateY(-1px)}
+.fb-btn--ghost{background:transparent;color:var(--fb-navy) !important;border:2px solid var(--fb-navy);padding:.7rem 1.4rem;border-radius:100px}
+.fb-btn--ghost:hover{background:var(--fb-navy);color:#fff !important}
+.fb-fine{font-size:.78rem;color:rgba(255,255,255,.6);margin:1rem 0 0 !important}
+h2[id],h3[id]{scroll-margin-top:90px}
+
+@media (prefers-reduced-motion:reduce){.fb-block *,.fb-seg,.fb-progress{transition:none !important;animation:none !important}}
+
+/* Callouts */
+.fb-callout{display:flex;gap:1rem;border-radius:12px;padding:1.2rem 1.4rem;border:1px solid}
+.fb-callout .fb-ci-ico{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.fb-callout p{margin:0;font-size:.95rem}
+.fb-callout b.fb-ct{display:block;font-family:var(--fb-serif);color:var(--fb-navy);font-size:1.02rem;margin-bottom:.2rem}
+.fb-callout.warn{background:#fff7ea;border-color:#f1d6a2}.fb-callout.warn .fb-ci-ico{background:#d99a2b}
+.fb-callout.tip{background:#fdeeea;border-color:#f6c6ba}.fb-callout.tip .fb-ci-ico{background:var(--fb-teal)}
+</code></pre></details>
+</section>
+</main>
+<footer class="g-foot">Internal component library for fundingbay.co.uk blog posts. Demo content is illustrative only.</footer>
+<script src="../gallery.js"></script>
+</body></html>

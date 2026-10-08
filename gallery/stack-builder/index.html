@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Funding stack builder | Funding Bay components</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<link rel="stylesheet" href="../gallery.css">
+</head><body>
+<a class="g-skip" href="#main">Skip to content</a>
+<header class="g-head"><div class="g-head-in">
+  <a class="g-brand" href="../">Funding Bay <span>components</span></a>
+  <nav class="g-nav" aria-label="Library"><a href="../">All components</a><a href="../../dist/preview.html">One-page preview</a><a href="../../dist/fb.css">fb.css</a><a href="../../dist/fb.js">fb.js</a></nav>
+</div></header>
+<main class="g-main" id="main">
+<a class="g-back" href="../">← All components</a>
+<h1>Funding stack builder</h1>
+<p class="g-lead">Sliders that build a funding stack against the total needed, with a live gap check.</p>
+<div class="g-tags" style="margin-bottom:1.4rem"><span class="g-tag">Interactive</span></div>
+
+<section class="g-panel" aria-labelledby="demo-h">
+  <h2 id="demo-h" style="margin-top:0">Live demo</h2>
+  <div class="g-toolbar">
+    <div class="g-seg" role="group" aria-label="Demo width">
+      <button type="button" data-g-width="full" aria-pressed="true">Desktop</button>
+      <button type="button" data-g-width="375" aria-pressed="false">Mobile 375px</button>
+    </div>
+    <div class="g-actions">
+      <button type="button" class="fb-btn" data-g-copy="code-html" data-g-label="HTML">Copy HTML</button>
+      <button type="button" class="fb-btn fb-btn--ghost" data-g-copy="code-css" data-g-label="CSS">Copy CSS</button>
+    </div>
+  </div>
+  <p class="g-status" data-g-status aria-live="polite"></p>
+  <div class="g-frame-wrap"><iframe class="g-frame" data-g-frame data-g-autoheight src="demo.html" title="Funding stack builder live demo" loading="lazy"></iframe></div>
+  
+</section>
+
+<section class="g-notes" aria-labelledby="use-h">
+  <h2 id="use-h">How to use it</h2>
+  <p><strong>Copy HTML</strong> gives you the markup and its script, ready for a WordPress Custom HTML block. Swap the demo text for the post's own.
+  <strong>Copy CSS</strong> gives the shared base styles plus this component's styles. If <code>fb.css</code> is already in Additional CSS, you only need the HTML.</p>
+  <p>Four sliders build a stacked bar of funding sources against a &quot;total needed&quot; marker, with a live status: balanced, funding gap or over-raised.</p>
+<ul>
+<li><strong>Where it goes:</strong> alongside a worked example in the post.</li>
+<li><strong>Text it needs:</strong> the total in <code>data-uses</code>, the uses breakdown in the header, and a label, min, max, step and starting value for each slider. Use the article's own (fictional) figures.</li>
+<li><strong>JavaScript:</strong> yes.</li>
+<li><strong>Compliance:</strong> keep the &quot;illustrative, fictional assumptions&quot; note.</li>
+<li><strong>Known limits:</strong> fixed input IDs (<code>fbs1</code> to <code>fbs4</code>) mean only one per page; one legend colour is hardcoded.</li>
+</ul>
+</section>
+
+<section aria-labelledby="code-h">
+  <h2 id="code-h">Code</h2>
+  <details class="g-code"><summary>HTML (paste into a Custom HTML block)</summary><pre id="code-html"><code>&lt;!-- Place under &quot;Use a Worked Illustrative Example&quot;, ABOVE (or instead of) the static navy sources/uses block. Fictional numbers from your article. --&gt;
+&lt;div class=&quot;fb-block fb-stack&quot; data-fb-stack data-uses=&quot;1050000&quot;&gt;
+  &lt;div class=&quot;fb-stack-head&quot;&gt;
+    &lt;div&gt;&lt;span class=&quot;fb-eyebrow&quot;&gt;Try it yourself&lt;/span&gt;&lt;h3&gt;Build the £1 million funding stack&lt;/h3&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb-uses&quot;&gt;Uses: &lt;b&gt;£1,000,000&lt;/b&gt; price + &lt;b&gt;£50,000&lt;/b&gt; costs = &lt;b&gt;£1,050,000&lt;/b&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fb-bar&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;fb-seg c1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;fb-seg c2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;fb-seg c3&quot;&gt;&lt;/div&gt;&lt;div class=&quot;fb-seg c4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb-mark&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fb-legend&quot;&gt;
+    &lt;span&gt;&lt;i style=&quot;background:var(--fb-navy)&quot;&gt;&lt;/i&gt;Buyer equity&lt;/span&gt;
+    &lt;span&gt;&lt;i style=&quot;background:var(--fb-teal)&quot;&gt;&lt;/i&gt;Senior debt&lt;/span&gt;
+    &lt;span&gt;&lt;i style=&quot;background:var(--fb-gold)&quot;&gt;&lt;/i&gt;Asset-backed support&lt;/span&gt;
+    &lt;span&gt;&lt;i style=&quot;background:#8aa4b5&quot;&gt;&lt;/i&gt;Deferred consideration&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fb-sliders&quot;&gt;
+    &lt;div class=&quot;fb-sl&quot;&gt;&lt;label for=&quot;fbs1&quot;&gt;Buyer equity &lt;output&gt;&lt;/output&gt;&lt;/label&gt;&lt;input id=&quot;fbs1&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;600000&quot; step=&quot;10000&quot; value=&quot;300000&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb-sl&quot;&gt;&lt;label for=&quot;fbs2&quot;&gt;Senior debt &lt;output&gt;&lt;/output&gt;&lt;/label&gt;&lt;input id=&quot;fbs2&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;800000&quot; step=&quot;10000&quot; value=&quot;500000&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb-sl&quot;&gt;&lt;label for=&quot;fbs3&quot;&gt;Asset-backed support &lt;output&gt;&lt;/output&gt;&lt;/label&gt;&lt;input id=&quot;fbs3&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;300000&quot; step=&quot;10000&quot; value=&quot;100000&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;fb-sl&quot;&gt;&lt;label for=&quot;fbs4&quot;&gt;Deferred consideration &lt;output&gt;&lt;/output&gt;&lt;/label&gt;&lt;input id=&quot;fbs4&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;400000&quot; step=&quot;10000&quot; value=&quot;150000&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;fb-status ok&quot; data-status aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;fb-status-ico&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;strong&gt;&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;fb-fine&quot; style=&quot;margin-top:1rem&quot;&gt;Illustrative, fictional assumptions. This is not a market norm, lender term or indication of eligibility. A balanced schedule does not prove the repayments are affordable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function(){
+  var root=document.querySelector('[data-fb-stack]'); if(!root)return;
+  var uses=+root.getAttribute('data-uses'),ins=root.querySelectorAll('input'),outs=root.querySelectorAll('output'),
+      segs=root.querySelectorAll('.fb-seg'),mark=root.querySelector('.fb-mark'),st=root.querySelector('[data-status]'),
+      ico=st.querySelector('.fb-status-ico'),strong=st.querySelector('strong'),sub=st.querySelector('div span');
+  function gbp(v){return '£'+v.toLocaleString('en-GB')}
+  function upd(){
+    var v=[],t=0;ins.forEach(function(i,k){var x=+i.value;v.push(x);t+=x;outs[k].textContent=gbp(x)});
+    var scale=Math.max(t,uses);
+    v.forEach(function(x,k){segs[k].style.width=(x/scale*100)+'%'});
+    mark.style.left=(uses/scale*100)+'%';
+    var d=t-uses;
+    if(d===0){st.className='fb-status ok';ico.textContent='✅';strong.textContent='Sources match uses: '+gbp(t);sub.textContent='The schedule balances. Now test whether repayments are affordable after completion.'}
+    else if(d&lt;0){st.className='fb-status gap';ico.textContent='⚠️';strong.textContent='Funding gap of '+gbp(-d);sub.textContent='Look at the buyer contribution, the repayment profile, deferred consideration or the price.'}
+    else{st.className='fb-status over';ico.textContent='ℹ️';strong.textContent=gbp(d)+' more than needed';sub.textContent='Raising more than you need adds cost and repayment pressure. A smaller debt burden can protect cash flow.'}
+  }
+  ins.forEach(function(i){i.addEventListener('input',upd)});upd();
+})();
+&lt;/script&gt;
+</code></pre></details>
+  <details class="g-code"><summary>CSS (base styles plus this component)</summary><pre id="code-css"><code>/* Funding Bay blog components: design tokens and shared base styles.
+   Everything is prefixed fb- so it will not clash with the theme. */
+
+:root{
+  --fb-navy:#11323F; --fb-navy-2:#1c4a5d; --fb-teal:#EE5B3E; --fb-teal-d:#D9472B;
+  --fb-cream:#F3F6FB; --fb-cream-d:#CDDEE6; --fb-grey:#6B7280; --fb-text:#1F2937;
+  --fb-gold:#7FA6B8; --fb-white:#fff;
+  --fb-serif:'Hind Madurai',system-ui,sans-serif; --fb-sans:'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+.fb-block,.fb-block *{box-sizing:border-box}
+.fb-block{font-family:var(--fb-sans);color:var(--fb-text);line-height:1.6;margin:2.2rem 0;font-size:16px}
+.fb-block h3,.fb-block h4{font-family:var(--fb-serif);font-weight:700;color:var(--fb-navy);margin:0 0 .5rem;line-height:1.3}
+.fb-block p{margin:0 0 1rem}
+.fb-block a{text-decoration:none}
+.fb-eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--fb-teal-d);margin-bottom:.6rem}
+.fb-btn{display:inline-block;background:var(--fb-teal);color:#fff !important;padding:.8rem 1.5rem;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;transition:background .2s,transform .2s;text-decoration:none !important;font-family:var(--fb-sans)}
+.fb-btn:hover{background:var(--fb-teal-d);transform:translateY(-1px)}
+.fb-btn--ghost{background:transparent;color:var(--fb-navy) !important;border:2px solid var(--fb-navy);padding:.7rem 1.4rem;border-radius:100px}
+.fb-btn--ghost:hover{background:var(--fb-navy);color:#fff !important}
+.fb-fine{font-size:.78rem;color:rgba(255,255,255,.6);margin:1rem 0 0 !important}
+h2[id],h3[id]{scroll-margin-top:90px}
+
+@media (prefers-reduced-motion:reduce){.fb-block *,.fb-seg,.fb-progress{transition:none !important;animation:none !important}}
+
+/* Funding stack builder */
+.fb-stack{background:#fff;border:1px solid var(--fb-cream-d);border-radius:18px;padding:2rem;box-shadow:0 8px 30px rgba(22,48,65,.07)}
+.fb-stack-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline}
+.fb-uses{font-size:.85rem;color:var(--fb-grey)}
+.fb-uses b{color:var(--fb-navy)}
+.fb-bar{position:relative;height:44px;border-radius:10px;background:var(--fb-cream);border:1px solid var(--fb-cream-d);margin:1.4rem 0 .5rem;display:flex;overflow:visible}
+.fb-seg{height:100%;transition:width .35s ease;min-width:0}
+.fb-seg:first-child{border-radius:9px 0 0 9px}
+.fb-seg.c1{background:var(--fb-navy)} .fb-seg.c2{background:var(--fb-teal)} .fb-seg.c3{background:var(--fb-gold)} .fb-seg.c4{background:#8aa4b5}
+.fb-mark{position:absolute;top:-8px;bottom:-8px;width:0;border-left:2px dashed var(--fb-navy);transition:left .35s ease}
+.fb-mark::after{content:&quot;Total needed&quot;;position:absolute;top:-1.15rem;right:-2.4rem;font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;color:var(--fb-navy);font-weight:700;white-space:nowrap}
+.fb-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.78rem;color:var(--fb-grey);margin-bottom:1.4rem}
+.fb-legend i{display:inline-block;width:.7rem;height:.7rem;border-radius:3px;margin-right:.35rem;vertical-align:-1px}
+.fb-sliders{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 2rem}
+.fb-sl label{display:flex;justify-content:space-between;font-size:.88rem;font-weight:600;color:var(--fb-navy);margin-bottom:.25rem}
+.fb-sl label output{font-family:var(--fb-serif);color:var(--fb-teal-d)}
+.fb-sl input[type=range]{width:100%;accent-color:var(--fb-teal)}
+.fb-status{margin-top:1.5rem;border-radius:12px;padding:1rem 1.2rem;display:flex;gap:.9rem;align-items:center;font-size:.92rem;transition:background .3s}
+.fb-status strong{font-family:var(--fb-serif);font-size:1.15rem;display:block}
+.fb-status.ok{background:#fdeeea;border:1px solid #f6c6ba}
+.fb-status.gap{background:#fff4e5;border:1px solid #f4d9a8}
+.fb-status.over{background:#eef3f7;border:1px solid #cfdbe5}
+.fb-status-ico{font-size:1.6rem;line-height:1}
+.fb-stack .fb-fine{color:var(--fb-grey)}
+@media (max-width:700px){
+  .fb-sliders{grid-template-columns:1fr}
+  .fb-stack{padding:1.5rem 1.2rem}
+  .fb-mark::after{right:0}
+}
+</code></pre></details>
+</section>
+</main>
+<footer class="g-foot">Internal component library for fundingbay.co.uk blog posts. Demo content is illustrative only.</footer>
+<script src="../gallery.js"></script>
+</body></html>

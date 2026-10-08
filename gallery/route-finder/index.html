@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Route finder quiz | Funding Bay components</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<link rel="stylesheet" href="../gallery.css">
+</head><body>
+<a class="g-skip" href="#main">Skip to content</a>
+<header class="g-head"><div class="g-head-in">
+  <a class="g-brand" href="../">Funding Bay <span>components</span></a>
+  <nav class="g-nav" aria-label="Library"><a href="../">All components</a><a href="../../dist/preview.html">One-page preview</a><a href="../../dist/fb.css">fb.css</a><a href="../../dist/fb.js">fb.js</a></nav>
+</div></header>
+<main class="g-main" id="main">
+<a class="g-back" href="../">← All components</a>
+<h1>Route finder quiz</h1>
+<p class="g-lead">Three quick questions that suggest which funding routes to discuss first.</p>
+<div class="g-tags" style="margin-bottom:1.4rem"><span class="g-tag">Interactive</span></div>
+
+<section class="g-panel" aria-labelledby="demo-h">
+  <h2 id="demo-h" style="margin-top:0">Live demo</h2>
+  <div class="g-toolbar">
+    <div class="g-seg" role="group" aria-label="Demo width">
+      <button type="button" data-g-width="full" aria-pressed="true">Desktop</button>
+      <button type="button" data-g-width="375" aria-pressed="false">Mobile 375px</button>
+    </div>
+    <div class="g-actions">
+      <button type="button" class="fb-btn" data-g-copy="code-html" data-g-label="HTML">Copy HTML</button>
+      <button type="button" class="fb-btn fb-btn--ghost" data-g-copy="code-css" data-g-label="CSS">Copy CSS</button>
+    </div>
+  </div>
+  <p class="g-status" data-g-status aria-live="polite"></p>
+  <div class="g-frame-wrap"><iframe class="g-frame" data-g-frame data-g-autoheight src="demo.html" title="Route finder quiz live demo" loading="lazy"></iframe></div>
+  
+</section>
+
+<section class="g-notes" aria-labelledby="use-h">
+  <h2 id="use-h">How to use it</h2>
+  <p><strong>Copy HTML</strong> gives you the markup and its script, ready for a WordPress Custom HTML block. Swap the demo text for the post's own.
+  <strong>Copy CSS</strong> gives the shared base styles plus this component's styles. If <code>fb.css</code> is already in Additional CSS, you only need the HTML.</p>
+  <p>A navy three-question quiz that scores the answers and shows the top three funding routes to discuss, with CTAs and an &quot;illustrative only&quot; note.</p>
+<ul>
+<li><strong>Where it goes:</strong> after the section that introduces the funding routes.</li>
+<li><strong>Text it needs:</strong> questions, answer options and route descriptions live in the JavaScript (<code>Q</code> and <code>R</code>). Route links point to fundingbay.co.uk pages; <code>#</code> means no page yet.</li>
+<li><strong>JavaScript:</strong> yes.</li>
+<li><strong>Compliance:</strong> keep the &quot;illustrative guide only, not advice or a lender decision&quot; note.</li>
+<li><strong>Known limits:</strong> only the first quiz on a page works; keyboard focus is lost after each answer; several routes have no link yet.</li>
+</ul>
+</section>
+
+<section aria-labelledby="code-h">
+  <h2 id="code-h">Code</h2>
+  <details class="g-code"><summary>HTML (paste into a Custom HTML block)</summary><pre id="code-html"><code>&lt;!-- Place right after the &quot;Start With the Deal&quot; section (or straight after the funding-routes card grid). Interactive 3-question quiz. --&gt;
+&lt;div class=&quot;fb-block fb-finder&quot; data-fb-finder&gt;
+  &lt;span class=&quot;fb-eyebrow&quot;&gt;30-second tool&lt;/span&gt;
+  &lt;h3&gt;Which funding routes fit your deal?&lt;/h3&gt;
+  &lt;p class=&quot;fb-finder-sub&quot;&gt;Answer three quick questions to see the routes worth discussing first.&lt;/p&gt;
+  &lt;div class=&quot;fb-dots&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div data-fb-stage aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function(){
+  var root=document.querySelector('[data-fb-finder]'); if(!root)return;
+  var stage=root.querySelector('[data-fb-stage]'),dots=root.querySelectorAll('.fb-dots i');
+  var R={
+    senior:['Senior debt or business loans','Funds the purchase price or approved costs where the target can service repayments.','#'],
+    abl:['Asset-backed lending','Borrowing linked to receivables, stock, equipment or property.','#'],
+    asset:['Asset finance','Hire purchase, leasing or refinance against equipment and machinery.','https://fundingbay.co.uk/asset-finance/'],
+    inv:['Invoice finance (working capital)','Releases cash tied up in unpaid invoices after completion.','https://fundingbay.co.uk/invoice-finance/'],
+    vendor:['Vendor finance or deferred consideration','The seller leaves part of the price outstanding.','#'],
+    equity:['Equity investment','Patient capital in return for ownership, with no scheduled repayments.','#'],
+    mbo:['MBO funding','Existing management team buys from current shareholders.','#'],
+    mbi:['MBI funding','An incoming team buys a business it does not yet run.','#'],
+    blended:['Blended structure','Several layers combined when one facility cannot cover everything.','#']
+  };
+  var Q=[
+    {q:'What gives the target most of its value?',o:[
+      ['Steady profits and cash flow',{senior:3,equity:1,vendor:1}],
+      ['Equipment, machinery or stock',{abl:3,asset:3,senior:1}],
+      ['A large unpaid invoice (debtor) book',{inv:3,abl:1,senior:1}],
+      ['Property or premises',{senior:2,abl:2}]]},
+    {q:'Who is doing the buying?',o:[
+      ['An established business buying a target',{senior:2,asset:1}],
+      ['The existing management team',{mbo:4,senior:1,vendor:1}],
+      ['An incoming team or individual',{mbi:4,equity:1,vendor:1}],
+      ['An investor-backed buyer',{equity:3,blended:1}]]},
+    {q:'If there is a funding gap, what would you accept to fill it?',o:[
+      ['The seller waiting for part of the price',{vendor:3}],
+      ['An investor taking a share of the business',{equity:3}],
+      ['More borrowing secured on assets',{abl:2,asset:2}],
+      ['Not sure yet',{blended:3}]]}
+  ];
+  var step=0,score;
+  function reset(){step=0;score={blended:1};show()}
+  function show(){
+    for(var i=0;i&lt;dots.length;i++)dots[i].className=i&lt;=step?'on':'';
+    if(step&gt;=Q.length)return done();
+    var q=Q[step],h='&lt;div class=&quot;fb-q&quot;&gt;'+q.q+'&lt;/div&gt;&lt;div class=&quot;fb-opts&quot;&gt;';
+    q.o.forEach(function(o,i){h+='&lt;button type=&quot;button&quot; class=&quot;fb-opt&quot; data-i=&quot;'+i+'&quot;&gt;'+o[0]+'&lt;/button&gt;'});
+    stage.innerHTML=h+'&lt;/div&gt;';
+  }
+  function done(){
+    for(var i=0;i&lt;dots.length;i++)dots[i].className='on';
+    var top=Object.keys(score).sort(function(a,b){return score[b]-score[a]}).slice(0,3);
+    var h='&lt;div class=&quot;fb-q&quot;&gt;Routes worth discussing first&lt;/div&gt;';
+    top.forEach(function(k,i){
+      var r=R[k];
+      h+='&lt;div class=&quot;fb-res-item&quot;&gt;&lt;em&gt;'+(i?'Also consider':'Best match')+'&lt;/em&gt;&lt;b&gt;'+(r[2]!=='#'?'&lt;a href=&quot;'+r[2]+'&quot; style=&quot;color:#fff&quot;&gt;'+r[0]+'&lt;/a&gt;':r[0])+'&lt;/b&gt;&lt;span&gt;'+r[1]+'&lt;/span&gt;&lt;/div&gt;';
+    });
+    h+='&lt;p style=&quot;margin:.8rem 0 0;font-size:.92rem;color:rgba(255,255,255,.85)&quot;&gt;Most acquisitions combine more than one route. A broker can test which mix lenders are likely to support.&lt;/p&gt;';
+    h+='&lt;div class=&quot;fb-res-actions&quot;&gt;&lt;a class=&quot;fb-btn&quot; href=&quot;https://fundingbay.co.uk/get-in-touch/&quot;&gt;Speak to Funding Bay&lt;/a&gt;&lt;a class=&quot;fb-btn fb-btn--ghost&quot; style=&quot;color:#fff!important;border-color:rgba(255,255,255,.6)&quot; href=&quot;https://comparemyfunding.co.uk/loan-offer-generator-1230001/&quot;&gt;Compare My Funding&lt;/a&gt;&lt;button type=&quot;button&quot; class=&quot;fb-link-btn&quot; data-restart&gt;Start again&lt;/button&gt;&lt;/div&gt;';
+    h+='&lt;p class=&quot;fb-fine&quot;&gt;An illustrative guide only. It is not advice or a lender decision, and eligibility depends on lender criteria.&lt;/p&gt;';
+    stage.innerHTML=h;
+  }
+  stage.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    if(b.hasAttribute('data-restart'))return reset();
+    var o=Q[step].o[+b.getAttribute('data-i')][1];
+    for(var k in o)score[k]=(score[k]||0)+o[k];
+    step++;show();
+  });
+  reset();
+})();
+&lt;/script&gt;
+</code></pre></details>
+  <details class="g-code"><summary>CSS (base styles plus this component)</summary><pre id="code-css"><code>/* Funding Bay blog components: design tokens and shared base styles.
+   Everything is prefixed fb- so it will not clash with the theme. */
+
+:root{
+  --fb-navy:#11323F; --fb-navy-2:#1c4a5d; --fb-teal:#EE5B3E; --fb-teal-d:#D9472B;
+  --fb-cream:#F3F6FB; --fb-cream-d:#CDDEE6; --fb-grey:#6B7280; --fb-text:#1F2937;
+  --fb-gold:#7FA6B8; --fb-white:#fff;
+  --fb-serif:'Hind Madurai',system-ui,sans-serif; --fb-sans:'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+.fb-block,.fb-block *{box-sizing:border-box}
+.fb-block{font-family:var(--fb-sans);color:var(--fb-text);line-height:1.6;margin:2.2rem 0;font-size:16px}
+.fb-block h3,.fb-block h4{font-family:var(--fb-serif);font-weight:700;color:var(--fb-navy);margin:0 0 .5rem;line-height:1.3}
+.fb-block p{margin:0 0 1rem}
+.fb-block a{text-decoration:none}
+.fb-eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--fb-teal-d);margin-bottom:.6rem}
+.fb-btn{display:inline-block;background:var(--fb-teal);color:#fff !important;padding:.8rem 1.5rem;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;transition:background .2s,transform .2s;text-decoration:none !important;font-family:var(--fb-sans)}
+.fb-btn:hover{background:var(--fb-teal-d);transform:translateY(-1px)}
+.fb-btn--ghost{background:transparent;color:var(--fb-navy) !important;border:2px solid var(--fb-navy);padding:.7rem 1.4rem;border-radius:100px}
+.fb-btn--ghost:hover{background:var(--fb-navy);color:#fff !important}
+.fb-fine{font-size:.78rem;color:rgba(255,255,255,.6);margin:1rem 0 0 !important}
+h2[id],h3[id]{scroll-margin-top:90px}
+
+@media (prefers-reduced-motion:reduce){.fb-block *,.fb-seg,.fb-progress{transition:none !important;animation:none !important}}
+
+/* Route finder quiz */
+.fb-finder{background:var(--fb-navy);color:#fff;border-radius:18px;padding:2.2rem;position:relative;overflow:hidden}
+.fb-finder::before{content:&quot;&quot;;position:absolute;top:-35%;right:-15%;width:420px;height:420px;background:radial-gradient(circle,rgba(238,91,62,.16),transparent 70%);pointer-events:none}
+.fb-finder&gt;*{position:relative}
+.fb-finder h3{color:#fff;font-size:1.5rem}
+.fb-finder-sub{color:rgba(255,255,255,.8);font-size:.95rem}
+.fb-dots{display:flex;gap:.4rem;margin:1.2rem 0 1.4rem}
+.fb-dots i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18);transition:background .3s}
+.fb-dots i.on{background:var(--fb-teal)}
+.fb-q{font-family:var(--fb-serif);font-size:1.2rem;margin-bottom:1rem}
+.fb-opts{display:grid;gap:.6rem}
+.fb-opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.9rem 1.1rem;border-radius:10px;font-size:.96rem;cursor:pointer;font-family:var(--fb-sans);transition:all .2s}
+.fb-opt:hover,.fb-opt:focus-visible{background:rgba(238,91,62,.25);border-color:var(--fb-teal);outline:none;transform:translateX(3px)}
+.fb-opt small{display:block;color:rgba(255,255,255,.65);font-size:.8rem;margin-top:.15rem}
+.fb-res-item{background:rgba(255,255,255,.08);border-left:3px solid var(--fb-teal);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:.6rem}
+.fb-res-item b{font-family:var(--fb-serif);font-size:1.05rem;display:block}
+.fb-res-item span{font-size:.86rem;color:rgba(255,255,255,.75)}
+.fb-res-item em{float:right;font-style:normal;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fb-teal);font-weight:600}
+.fb-res-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:1.2rem}
+.fb-link-btn{background:none;border:0;color:rgba(255,255,255,.75);text-decoration:underline;cursor:pointer;font-size:.88rem;font-family:var(--fb-sans)}
+.fb-finder .fb-eyebrow{color:#ff8a70}
+.fb-finder .fb-btn--ghost{color:#fff !important;border-color:rgba(255,255,255,.6)}
+@media (max-width:700px){
+  .fb-finder{padding:1.5rem 1.2rem}
+}
+</code></pre></details>
+</section>
+</main>
+<footer class="g-foot">Internal component library for fundingbay.co.uk blog posts. Demo content is illustrative only.</footer>
+<script src="../gallery.js"></script>
+</body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Funding stack builder demo</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<style>
+body{font-family:Lato,sans-serif;color:#212529;line-height:1.75;font-size:17px;margin:0;background:#fff}
+.w{max-width:780px;margin:0 auto;padding:2rem 1.5rem 5rem}
+h1,h2{font-family:"Hind Madurai",sans-serif;font-weight:800;color:#11323F;line-height:1.3}h2{margin:3rem 0 1rem}
+a{color:#D9472B}
+</style></head><body><div class="w">
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<!-- Place under "Use a Worked Illustrative Example", ABOVE (or instead of) the static navy sources/uses block. Fictional numbers from your article. -->
+<div class="fb-block fb-stack" data-fb-stack data-uses="1050000">
+  <div class="fb-stack-head">
+    <div><span class="fb-eyebrow">Try it yourself</span><h3>Build the £1 million funding stack</h3></div>
+    <div class="fb-uses">Uses: <b>£1,000,000</b> price + <b>£50,000</b> costs = <b>£1,050,000</b></div>
+  </div>
+  <div class="fb-bar" aria-hidden="true">
+    <div class="fb-seg c1"></div><div class="fb-seg c2"></div><div class="fb-seg c3"></div><div class="fb-seg c4"></div>
+    <div class="fb-mark"></div>
+  </div>
+  <div class="fb-legend">
+    <span><i style="background:var(--fb-navy)"></i>Buyer equity</span>
+    <span><i style="background:var(--fb-teal)"></i>Senior debt</span>
+    <span><i style="background:var(--fb-gold)"></i>Asset-backed support</span>
+    <span><i style="background:#8aa4b5"></i>Deferred consideration</span>
+  </div>
+  <div class="fb-sliders">
+    <div class="fb-sl"><label for="fbs1">Buyer equity <output></output></label><input id="fbs1" type="range" min="0" max="600000" step="10000" value="300000"></div>
+    <div class="fb-sl"><label for="fbs2">Senior debt <output></output></label><input id="fbs2" type="range" min="0" max="800000" step="10000" value="500000"></div>
+    <div class="fb-sl"><label for="fbs3">Asset-backed support <output></output></label><input id="fbs3" type="range" min="0" max="300000" step="10000" value="100000"></div>
+    <div class="fb-sl"><label for="fbs4">Deferred consideration <output></output></label><input id="fbs4" type="range" min="0" max="400000" step="10000" value="150000"></div>
+  </div>
+  <div class="fb-status ok" data-status aria-live="polite"><span class="fb-status-ico"></span><div><strong></strong><span></span></div></div>
+  <p class="fb-fine" style="margin-top:1rem">Illustrative, fictional assumptions. This is not a market norm, lender term or indication of eligibility. A balanced schedule does not prove the repayments are affordable.</p>
+</div>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+</div>
+<script>
+(function(){
+  var root=document.querySelector('[data-fb-stack]'); if(!root)return;
+  var uses=+root.getAttribute('data-uses'),ins=root.querySelectorAll('input'),outs=root.querySelectorAll('output'),
+      segs=root.querySelectorAll('.fb-seg'),mark=root.querySelector('.fb-mark'),st=root.querySelector('[data-status]'),
+      ico=st.querySelector('.fb-status-ico'),strong=st.querySelector('strong'),sub=st.querySelector('div span');
+  function gbp(v){return '£'+v.toLocaleString('en-GB')}
+  function upd(){
+    var v=[],t=0;ins.forEach(function(i,k){var x=+i.value;v.push(x);t+=x;outs[k].textContent=gbp(x)});
+    var scale=Math.max(t,uses);
+    v.forEach(function(x,k){segs[k].style.width=(x/scale*100)+'%'});
+    mark.style.left=(uses/scale*100)+'%';
+    var d=t-uses;
+    if(d===0){st.className='fb-status ok';ico.textContent='✅';strong.textContent='Sources match uses: '+gbp(t);sub.textContent='The schedule balances. Now test whether repayments are affordable after completion.'}
+    else if(d<0){st.className='fb-status gap';ico.textContent='⚠️';strong.textContent='Funding gap of '+gbp(-d);sub.textContent='Look at the buyer contribution, the repayment profile, deferred consideration or the price.'}
+    else{st.className='fb-status over';ico.textContent='ℹ️';strong.textContent=gbp(d)+' more than needed';sub.textContent='Raising more than you need adds cost and repayment pressure. A smaller debt burden can protect cash flow.'}
+  }
+  ins.forEach(function(i){i.addEventListener('input',upd)});upd();
+})();
+</script>
+<script>
+(function(){if(window.parent===window)return;function send(){parent.postMessage({fbDemoHeight:document.documentElement.scrollHeight},'*')}
+if(window.ResizeObserver)new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);send()})();
+</script>
+</body></html>

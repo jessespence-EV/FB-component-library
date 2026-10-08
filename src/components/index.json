@@ -1,13 +1,13 @@
 [
-  { "slug": "progress-bar",  "name": "Reading progress bar",   "once": true },
-  { "slug": "key-takeaways", "name": "Key takeaways" },
-  { "slug": "contents",      "name": "Contents list" },
-  { "slug": "route-finder",  "name": "Route finder quiz" },
-  { "slug": "stack-builder", "name": "Funding stack builder" },
-  { "slug": "match-up",      "name": "Match-up grid" },
-  { "slug": "checklist",     "name": "Interactive checklist" },
-  { "slug": "cta-strip",     "name": "CTA strip" },
-  { "slug": "callout",       "name": "Callouts" },
-  { "slug": "faq-accordion", "name": "FAQ accordion" },
-  { "slug": "sticky-bar",    "name": "Sticky bottom bar",      "once": true }
+  { "slug": "progress-bar",  "name": "Reading progress bar",  "once": true, "summary": "A thin coral bar along the top of the screen that fills as the reader scrolls." },
+  { "slug": "key-takeaways", "name": "Key takeaways",         "summary": "The post's main points as a ticked list, with a four-item stat strip." },
+  { "slug": "contents",      "name": "Contents list",         "summary": "Numbered jump links to each section of the post." },
+  { "slug": "route-finder",  "name": "Route finder quiz",     "summary": "Three quick questions that suggest which funding routes to discuss first." },
+  { "slug": "stack-builder", "name": "Funding stack builder", "summary": "Sliders that build a funding stack against the total needed, with a live gap check." },
+  { "slug": "match-up",      "name": "Match-up grid",         "summary": "Pairs what a business has with the funding types that may suit it." },
+  { "slug": "checklist",     "name": "Interactive checklist", "summary": "A tick-off document checklist with a progress meter and a CTA at the end." },
+  { "slug": "cta-strip",     "name": "CTA strip",             "summary": "A navy mid-article strip with a heading, one line and a button." },
+  { "slug": "callout",       "name": "Callouts",              "summary": "Warning and tip notes that highlight a key point next to the text." },
+  { "slug": "faq-accordion", "name": "FAQ accordion",         "summary": "Expandable questions with matching FAQ schema for Google rich results." },
+  { "slug": "sticky-bar",    "name": "Sticky bottom bar",     "once": true, "summary": "A dismissible CTA bar that slides up once the reader is 30% through the post." }
 ]

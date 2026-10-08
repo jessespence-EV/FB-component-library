@@ -1,0 +1,64 @@
+/* Gallery site styles. Brand tokens come from dist/fb.css, which every gallery page loads first. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--fb-sans);color:#212529;background:var(--fb-cream);line-height:1.6;font-size:16px}
+a{color:var(--fb-teal-d)}
+:focus-visible{outline:3px solid var(--fb-teal);outline-offset:2px}
+.g-skip{position:absolute;left:-9999px;top:0;background:var(--fb-navy);color:#fff;padding:.6rem 1rem;z-index:10}
+.g-skip:focus{left:1rem;top:1rem}
+
+.g-head{background:var(--fb-navy);color:#fff}
+.g-head-in,.g-main{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+.g-head-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1rem;padding-bottom:1rem}
+.g-brand{color:#fff;text-decoration:none;font-family:var(--fb-serif);font-weight:800;font-size:1.15rem}
+.g-brand span{color:var(--fb-teal)}
+.g-nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+.g-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.92rem}
+.g-nav a:hover{color:#fff;text-decoration:underline}
+
+.g-main{padding-top:2rem;padding-bottom:4rem}
+.g-main h1,.g-main h2{font-family:var(--fb-serif);color:var(--fb-navy);line-height:1.25;margin:0 0 .6rem}
+.g-main h1{font-size:2rem;font-weight:800}
+.g-main h2{font-size:1.35rem;font-weight:700;margin-top:2.2rem}
+.g-lead{font-size:1.05rem;max-width:46rem;margin:0 0 1.6rem}
+.g-back{display:inline-block;margin-bottom:1rem;font-size:.9rem;text-decoration:none}
+.g-back:hover{text-decoration:underline}
+
+.g-grid{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.g-card{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--fb-cream-d);border-radius:14px;padding:1.2rem 1.3rem;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
+.g-card:hover{border-color:var(--fb-teal);box-shadow:0 6px 20px rgba(17,50,63,.08)}
+.g-card h2{font-size:1.1rem;margin:0 0 .35rem}
+.g-card p{margin:0 0 .8rem;font-size:.92rem;color:var(--fb-grey)}
+.g-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:auto}
+.g-tag{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--fb-navy);background:var(--fb-cream);border:1px solid var(--fb-cream-d);border-radius:100px;padding:.15rem .6rem}
+
+.g-panel{background:#fff;border:1px solid var(--fb-cream-d);border-radius:14px;padding:1.2rem}
+.g-toolbar{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem}
+.g-seg{display:inline-flex;border:1px solid var(--fb-cream-d);border-radius:100px;padding:3px;background:var(--fb-cream)}
+.g-seg button{border:0;background:none;border-radius:100px;padding:.4rem .9rem;font:inherit;font-size:.85rem;font-weight:700;color:var(--fb-navy);cursor:pointer}
+.g-seg button[aria-pressed="true"]{background:var(--fb-navy);color:#fff}
+.g-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.g-actions .fb-btn{font-size:.88rem;padding:.6rem 1.2rem}
+.g-actions .fb-btn--ghost{padding:.5rem 1.1rem}
+.g-status{font-size:.85rem;color:var(--fb-navy);min-height:1.4em;margin:.4rem 0 0;font-weight:700}
+.g-frame-wrap{background:var(--fb-cream);border-radius:10px;padding:.8rem;overflow:hidden}
+.g-frame{display:block;width:100%;max-width:100%;margin:0 auto;border:1px solid var(--fb-cream-d);border-radius:8px;background:#fff;height:600px;transition:width .25s}
+.g-frame[data-width="375"]{width:375px}
+
+.g-notes{max-width:46rem}
+.g-notes ul{padding-left:1.2rem}
+.g-notes li{margin-bottom:.4rem}
+.g-main code{font-family:Consolas,'SFMono-Regular',Menlo,monospace;font-size:.88em;background:var(--fb-cream);border:1px solid var(--fb-cream-d);border-radius:4px;padding:.05rem .3rem}
+.g-code{margin-top:1rem}
+.g-code summary{cursor:pointer;font-weight:700;color:var(--fb-navy);padding:.4rem 0}
+.g-code pre{margin:.4rem 0 0;max-height:420px;overflow:auto;background:var(--fb-navy);color:#e8eef2;border-radius:10px;padding:1rem;font-size:.8rem;line-height:1.5}
+.g-code pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+
+.g-foot{max-width:1100px;margin:0 auto;padding:0 1.25rem 2rem;font-size:.82rem;color:var(--fb-navy-2)}
+
+@media (max-width:600px){
+  .g-main h1{font-size:1.6rem}
+  .g-frame-wrap{padding:.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .g-card,.g-frame{transition:none}
+}

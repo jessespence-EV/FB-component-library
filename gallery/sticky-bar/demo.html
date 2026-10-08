@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sticky bottom bar demo</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<style>
+body{font-family:Lato,sans-serif;color:#212529;line-height:1.75;font-size:17px;margin:0;background:#fff}
+.w{max-width:780px;margin:0 auto;padding:2rem 1.5rem 5rem}
+h1,h2{font-family:"Hind Madurai",sans-serif;font-weight:800;color:#11323F;line-height:1.3}h2{margin:3rem 0 1rem}
+a{color:#D9472B}
+</style></head><body><div class="w">
+<h1>Sticky bottom bar demo</h1>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<!-- Place ONCE, anywhere in the post (top is fine). Sticky "compare lenders" bar that appears after 30% scroll. -->
+<div class="fb-sticky" id="fbSticky" role="complementary" aria-label="Compare funding">
+  <span><strong>Funding an acquisition?</strong> See which of 200+ UK lenders may fit. Soft credit check only.</span>
+  <a class="fb-btn" href="https://comparemyfunding.co.uk/loan-offer-generator-1230001/">Compare My Funding</a>
+  <button class="fb-x" id="fbStickyX" aria-label="Dismiss">×</button>
+</div>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+</div>
+<script>
+(function(){
+  var st=document.getElementById('fbSticky'),x=document.getElementById('fbStickyX'); if(!st||!x)return;
+  var closed=false; try{closed=sessionStorage.getItem('fbStickyX')==='1'}catch(e){}
+  function on(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;
+    if(!closed) st.classList.toggle('show',p>.3&&p<.97);
+  }
+  x.addEventListener('click',function(){closed=true;st.classList.remove('show');try{sessionStorage.setItem('fbStickyX','1')}catch(e){}});
+  window.addEventListener('scroll',on,{passive:true});on();
+})();
+</script>
+</body></html>
