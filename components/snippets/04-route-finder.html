@@ -1,0 +1,72 @@
+<!-- Place right after the "Start With the Deal" section (or straight after the funding-routes card grid). Interactive 3-question quiz. -->
+<div class="fb-block fb-finder" data-fb-finder>
+  <span class="fb-eyebrow">30-second tool</span>
+  <h3>Which funding routes fit your deal?</h3>
+  <p class="fb-finder-sub">Answer three quick questions to see the routes worth discussing first.</p>
+  <div class="fb-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div data-fb-stage aria-live="polite"></div>
+</div>
+<script>
+(function(){
+  var root=document.querySelector('[data-fb-finder]'); if(!root)return;
+  var stage=root.querySelector('[data-fb-stage]'),dots=root.querySelectorAll('.fb-dots i');
+  var R={
+    senior:['Senior debt or business loans','Funds the purchase price or approved costs where the target can service repayments.','#'],
+    abl:['Asset-backed lending','Borrowing linked to receivables, stock, equipment or property.','#'],
+    asset:['Asset finance','Hire purchase, leasing or refinance against equipment and machinery.','https://fundingbay.co.uk/asset-finance/'],
+    inv:['Invoice finance (working capital)','Releases cash tied up in unpaid invoices after completion.','https://fundingbay.co.uk/invoice-finance/'],
+    vendor:['Vendor finance or deferred consideration','The seller leaves part of the price outstanding.','#'],
+    equity:['Equity investment','Patient capital in return for ownership, with no scheduled repayments.','#'],
+    mbo:['MBO funding','Existing management team buys from current shareholders.','#'],
+    mbi:['MBI funding','An incoming team buys a business it does not yet run.','#'],
+    blended:['Blended structure','Several layers combined when one facility cannot cover everything.','#']
+  };
+  var Q=[
+    {q:'What gives the target most of its value?',o:[
+      ['Steady profits and cash flow',{senior:3,equity:1,vendor:1}],
+      ['Equipment, machinery or stock',{abl:3,asset:3,senior:1}],
+      ['A large unpaid invoice (debtor) book',{inv:3,abl:1,senior:1}],
+      ['Property or premises',{senior:2,abl:2}]]},
+    {q:'Who is doing the buying?',o:[
+      ['An established business buying a target',{senior:2,asset:1}],
+      ['The existing management team',{mbo:4,senior:1,vendor:1}],
+      ['An incoming team or individual',{mbi:4,equity:1,vendor:1}],
+      ['An investor-backed buyer',{equity:3,blended:1}]]},
+    {q:'If there is a funding gap, what would you accept to fill it?',o:[
+      ['The seller waiting for part of the price',{vendor:3}],
+      ['An investor taking a share of the business',{equity:3}],
+      ['More borrowing secured on assets',{abl:2,asset:2}],
+      ['Not sure yet',{blended:3}]]}
+  ];
+  var step=0,score;
+  function reset(){step=0;score={blended:1};show()}
+  function show(){
+    for(var i=0;i<dots.length;i++)dots[i].className=i<=step?'on':'';
+    if(step>=Q.length)return done();
+    var q=Q[step],h='<div class="fb-q">'+q.q+'</div><div class="fb-opts">';
+    q.o.forEach(function(o,i){h+='<button type="button" class="fb-opt" data-i="'+i+'">'+o[0]+'</button>'});
+    stage.innerHTML=h+'</div>';
+  }
+  function done(){
+    for(var i=0;i<dots.length;i++)dots[i].className='on';
+    var top=Object.keys(score).sort(function(a,b){return score[b]-score[a]}).slice(0,3);
+    var h='<div class="fb-q">Routes worth discussing first</div>';
+    top.forEach(function(k,i){
+      var r=R[k];
+      h+='<div class="fb-res-item"><em>'+(i?'Also consider':'Best match')+'</em><b>'+(r[2]!=='#'?'<a href="'+r[2]+'" style="color:#fff">'+r[0]+'</a>':r[0])+'</b><span>'+r[1]+'</span></div>';
+    });
+    h+='<p style="margin:.8rem 0 0;font-size:.92rem;color:rgba(255,255,255,.85)">Most acquisitions combine more than one route. A broker can test which mix lenders are likely to support.</p>';
+    h+='<div class="fb-res-actions"><a class="fb-btn" href="https://fundingbay.co.uk/get-in-touch/">Speak to Funding Bay</a><a class="fb-btn fb-btn--ghost" style="color:#fff!important;border-color:rgba(255,255,255,.6)" href="https://comparemyfunding.co.uk/loan-offer-generator-1230001/">Compare My Funding</a><button type="button" class="fb-link-btn" data-restart>Start again</button></div>';
+    h+='<p class="fb-fine">An illustrative guide only. It is not advice or a lender decision, and eligibility depends on lender criteria.</p>';
+    stage.innerHTML=h;
+  }
+  stage.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    if(b.hasAttribute('data-restart'))return reset();
+    var o=Q[step].o[+b.getAttribute('data-i')][1];
+    for(var k in o)score[k]=(score[k]||0)+o[k];
+    step++;show();
+  });
+  reset();
+})();
+</script>
