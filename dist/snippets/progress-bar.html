@@ -1,0 +1,12 @@
+<!-- Place ONCE, anywhere in the post (top is fine). Reading progress bar along the top of the screen. -->
+<div class="fb-progress" id="fbProgress" aria-hidden="true"></div>
+<script>
+(function(){
+  var bar=document.getElementById('fbProgress'); if(!bar)return;
+  function on(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;
+    bar.style.width=(p*100)+'%';
+  }
+  window.addEventListener('scroll',on,{passive:true});on();
+})();
+</script>

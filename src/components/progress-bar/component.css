@@ -1,0 +1,2 @@
+/* Reading progress bar */
+.fb-progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--fb-teal),var(--fb-gold));z-index:99999;transition:width .1s linear}

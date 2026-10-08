@@ -1,0 +1,25 @@
+/* Route finder quiz */
+.fb-finder{background:var(--fb-navy);color:#fff;border-radius:18px;padding:2.2rem;position:relative;overflow:hidden}
+.fb-finder::before{content:"";position:absolute;top:-35%;right:-15%;width:420px;height:420px;background:radial-gradient(circle,rgba(238,91,62,.16),transparent 70%);pointer-events:none}
+.fb-finder>*{position:relative}
+.fb-finder h3{color:#fff;font-size:1.5rem}
+.fb-finder-sub{color:rgba(255,255,255,.8);font-size:.95rem}
+.fb-dots{display:flex;gap:.4rem;margin:1.2rem 0 1.4rem}
+.fb-dots i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18);transition:background .3s}
+.fb-dots i.on{background:var(--fb-teal)}
+.fb-q{font-family:var(--fb-serif);font-size:1.2rem;margin-bottom:1rem}
+.fb-opts{display:grid;gap:.6rem}
+.fb-opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.9rem 1.1rem;border-radius:10px;font-size:.96rem;cursor:pointer;font-family:var(--fb-sans);transition:all .2s}
+.fb-opt:hover,.fb-opt:focus-visible{background:rgba(238,91,62,.25);border-color:var(--fb-teal);outline:none;transform:translateX(3px)}
+.fb-opt small{display:block;color:rgba(255,255,255,.65);font-size:.8rem;margin-top:.15rem}
+.fb-res-item{background:rgba(255,255,255,.08);border-left:3px solid var(--fb-teal);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:.6rem}
+.fb-res-item b{font-family:var(--fb-serif);font-size:1.05rem;display:block}
+.fb-res-item span{font-size:.86rem;color:rgba(255,255,255,.75)}
+.fb-res-item em{float:right;font-style:normal;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fb-teal);font-weight:600}
+.fb-res-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:1.2rem}
+.fb-link-btn{background:none;border:0;color:rgba(255,255,255,.75);text-decoration:underline;cursor:pointer;font-size:.88rem;font-family:var(--fb-sans)}
+.fb-finder .fb-eyebrow{color:#ff8a70}
+.fb-finder .fb-btn--ghost{color:#fff !important;border-color:rgba(255,255,255,.6)}
+@media (max-width:700px){
+  .fb-finder{padding:1.5rem 1.2rem}
+}

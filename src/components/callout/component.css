@@ -1,0 +1,7 @@
+/* Callouts */
+.fb-callout{display:flex;gap:1rem;border-radius:12px;padding:1.2rem 1.4rem;border:1px solid}
+.fb-callout .fb-ci-ico{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.fb-callout p{margin:0;font-size:.95rem}
+.fb-callout b.fb-ct{display:block;font-family:var(--fb-serif);color:var(--fb-navy);font-size:1.02rem;margin-bottom:.2rem}
+.fb-callout.warn{background:#fff7ea;border-color:#f1d6a2}.fb-callout.warn .fb-ci-ico{background:#d99a2b}
+.fb-callout.tip{background:#fdeeea;border-color:#f6c6ba}.fb-callout.tip .fb-ci-ico{background:var(--fb-teal)}

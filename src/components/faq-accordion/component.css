@@ -1,0 +1,8 @@
+/* FAQ accordion */
+.fb-faq details{background:var(--fb-cream);border:1px solid var(--fb-cream-d);border-left:3px solid var(--fb-teal);border-radius:10px;margin-bottom:.7rem;overflow:hidden}
+.fb-faq summary{list-style:none;cursor:pointer;padding:1.1rem 3rem 1.1rem 1.4rem;font-family:var(--fb-serif);font-weight:600;color:var(--fb-navy);font-size:1.03rem;position:relative;line-height:1.4}
+.fb-faq summary::-webkit-details-marker{display:none}
+.fb-faq summary::after{content:"+";position:absolute;right:1.3rem;top:50%;transform:translateY(-50%);width:1.6rem;height:1.6rem;border-radius:50%;background:#fff;border:1px solid var(--fb-cream-d);color:var(--fb-teal);display:flex;align-items:center;justify-content:center;font-family:var(--fb-sans);font-size:1.1rem;transition:transform .25s}
+.fb-faq details[open] summary::after{content:"–"}
+.fb-faq details[open] summary{border-bottom:1px solid var(--fb-cream-d)}
+.fb-faq details p{margin:0;padding:1rem 1.4rem 1.2rem;font-size:.95rem}

@@ -1,0 +1,9 @@
+{
+  "name": "fb-component-library",
+  "private": true,
+  "description": "Funding Bay blog component library",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

@@ -1,0 +1,9 @@
+/* Sticky bottom bar */
+.fb-sticky{position:fixed;left:0;right:0;bottom:0;z-index:99998;background:var(--fb-navy);color:#fff;padding:.8rem 1rem;display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;transform:translateY(110%);transition:transform .4s;box-shadow:0 -6px 24px rgba(0,0,0,.18);font-family:var(--fb-sans)}
+.fb-sticky.show{transform:none}
+.fb-sticky span{font-size:.92rem}
+.fb-sticky .fb-btn{padding:.55rem 1.2rem;font-size:.88rem}
+.fb-sticky button.fb-x{background:none;border:0;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;line-height:1;padding:0 .3rem}
+@media (max-width:700px){
+  .fb-sticky span{display:none}
+}

@@ -1,0 +1,13 @@
+/* Match-up grid */
+.fb-match{display:grid;gap:.7rem}
+.fb-match-row{display:grid;grid-template-columns:1fr 2.2rem 1.4fr;align-items:center;gap:.4rem}
+.fb-m-l{background:var(--fb-cream);border:1px solid var(--fb-cream-d);border-radius:10px;padding:.8rem 1rem;font-weight:600;color:var(--fb-navy);font-size:.94rem}
+.fb-m-l small{display:block;font-weight:400;color:var(--fb-grey);font-size:.78rem}
+.fb-m-arrow{text-align:center;color:var(--fb-teal);font-size:1.3rem;font-weight:700}
+.fb-m-r{background:#fff;border:1px solid var(--fb-cream-d);border-left:4px solid var(--fb-teal);border-radius:10px;padding:.8rem 1rem;font-size:.9rem}
+.fb-m-r a{color:var(--fb-teal-d);font-weight:600}
+.fb-match-row:hover .fb-m-r{box-shadow:0 4px 16px rgba(22,48,65,.1)}
+@media (max-width:700px){
+  .fb-match-row{grid-template-columns:1fr}
+  .fb-m-arrow{transform:rotate(90deg);height:1.2rem;line-height:1.2rem}
+}

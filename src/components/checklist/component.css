@@ -1,0 +1,24 @@
+/* Interactive checklist */
+.fb-check{background:var(--fb-cream);border:1px solid var(--fb-cream-d);border-radius:18px;padding:1.8rem}
+.fb-check-top{position:sticky;top:0;background:var(--fb-cream);padding:.4rem 0 1rem;z-index:2}
+.fb-meter{height:10px;background:#fff;border:1px solid var(--fb-cream-d);border-radius:6px;overflow:hidden}
+.fb-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--fb-teal),var(--fb-gold));transition:width .35s}
+.fb-meter-txt{display:flex;justify-content:space-between;font-size:.84rem;margin-top:.4rem;color:var(--fb-grey)}
+.fb-meter-txt b{color:var(--fb-navy)}
+.fb-ci{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border:1px solid var(--fb-cream-d);border-radius:10px;padding:.85rem 1rem;margin-bottom:.55rem;cursor:pointer;transition:all .2s}
+.fb-ci:hover{border-color:var(--fb-teal)}
+.fb-ci input{position:absolute;opacity:0;pointer-events:none}
+.fb-box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid #c8cfd6;display:flex;align-items:center;justify-content:center;color:transparent;font-weight:700;font-size:.85rem;margin-top:.1rem;transition:all .2s}
+.fb-ci input:checked~.fb-box{background:var(--fb-teal);border-color:var(--fb-teal);color:#fff}
+.fb-ci input:focus-visible~.fb-box{outline:3px solid rgba(238,91,62,.4)}
+.fb-ci-t b{display:block;font-family:var(--fb-serif);color:var(--fb-navy);font-size:1rem;font-weight:600}
+.fb-ci-t span{font-size:.86rem;color:var(--fb-grey);line-height:1.5}
+.fb-ci input:checked~.fb-ci-t b{text-decoration:line-through;text-decoration-color:var(--fb-teal);opacity:.7}
+.fb-check-msg{margin-top:1.2rem;background:var(--fb-navy);color:#fff;border-radius:12px;padding:1.2rem 1.4rem;display:none}
+.fb-check-msg.show{display:block;animation:fbpop .4s}
+.fb-check-msg b{font-family:var(--fb-serif);font-size:1.15rem;display:block;margin-bottom:.3rem}
+.fb-check-msg p{color:rgba(255,255,255,.85);font-size:.92rem}
+@keyframes fbpop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:700px){
+  .fb-check{padding:1.5rem 1.2rem}
+}

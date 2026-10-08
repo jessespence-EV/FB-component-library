@@ -1,0 +1,13 @@
+[
+  { "slug": "progress-bar",  "name": "Reading progress bar",   "once": true },
+  { "slug": "key-takeaways", "name": "Key takeaways" },
+  { "slug": "contents",      "name": "Contents list" },
+  { "slug": "route-finder",  "name": "Route finder quiz" },
+  { "slug": "stack-builder", "name": "Funding stack builder" },
+  { "slug": "match-up",      "name": "Match-up grid" },
+  { "slug": "checklist",     "name": "Interactive checklist" },
+  { "slug": "cta-strip",     "name": "CTA strip" },
+  { "slug": "callout",       "name": "Callouts" },
+  { "slug": "faq-accordion", "name": "FAQ accordion" },
+  { "slug": "sticky-bar",    "name": "Sticky bottom bar",      "once": true }
+]
