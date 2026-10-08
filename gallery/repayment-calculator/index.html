@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repayment calculator | Funding Bay components</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/fb.css">
+<link rel="stylesheet" href="../gallery.css">
+</head><body>
+<a class="g-skip" href="#main">Skip to content</a>
+<header class="g-head"><div class="g-head-in">
+  <a class="g-brand" href="../">Funding Bay <span>components</span></a>
+  <nav class="g-nav" aria-label="Library"><a href="../">All components</a><a href="../../dist/preview.html">One-page preview</a><a href="../../dist/fb.css">fb.css</a><a href="../../dist/fb.js">fb.js</a></nav>
+</div></header>
+<main class="g-main" id="main">
+<a class="g-back" href="../">← All components</a>
+<h1>Repayment calculator</h1>
+<p class="g-lead">Estimates monthly repayments and total cost for a fixed-rate loan, with an illustrative-only note.</p>
+<div class="g-tags" style="margin-bottom:1.4rem"><span class="g-tag">Interactive</span></div>
+
+<section class="g-panel" aria-labelledby="demo-h">
+  <h2 id="demo-h" style="margin-top:0">Live demo</h2>
+  <div class="g-toolbar">
+    <div class="g-seg" role="group" aria-label="Demo width">
+      <button type="button" data-g-width="full" aria-pressed="true">Desktop</button>
+      <button type="button" data-g-width="375" aria-pressed="false">Mobile 375px</button>
+    </div>
+    <div class="g-actions">
+      <button type="button" class="fb-btn" data-g-copy="code-html" data-g-label="HTML">Copy HTML</button>
+      <button type="button" class="fb-btn fb-btn--ghost" data-g-copy="code-css" data-g-label="CSS">Copy CSS</button>
+    </div>
+  </div>
+  <p class="g-status" data-g-status aria-live="polite"></p>
+  <div class="g-frame-wrap"><iframe class="g-frame" data-g-frame data-g-autoheight src="demo.html" title="Repayment calculator live demo" loading="lazy"></iframe></div>
+  
+</section>
+
+<section class="g-notes" aria-labelledby="use-h">
+  <h2 id="use-h">How to use it</h2>
+  <p><strong>Copy HTML</strong> gives you the markup and its script, ready for a WordPress Custom HTML block. Swap the demo text for the post's own.
+  <strong>Copy CSS</strong> gives the shared base styles plus this component's styles. If <code>fb.css</code> is already in Additional CSS, you only need the HTML.</p>
+  <p>Estimates the monthly repayment, total repayable and total interest for a fixed-rate loan repaid in equal monthly instalments (interest on the reducing balance).</p>
+<ul>
+<li><strong>Where it goes:</strong> near the section on loan costs, affordability or the unsecured loan product.</li>
+<li><strong>Text it needs:</strong> a heading and one-line intro. Set limits on the wrapper: <code>data-min</code>, <code>data-max</code>, <code>data-step</code>, <code>data-amount</code> (starting amount), <code>data-terms</code> (months, comma separated), <code>data-term</code> (starting term) and <code>data-rate</code> (starting % a year).</li>
+<li><strong>Defaults:</strong> £1,000 to £500,000 over 12, 24 or 36 months, matching the approved unsecured loan facts. The 5% starting rate is an example supplied by Funding Bay, not a lender rate.</li>
+<li><strong>JavaScript:</strong> yes. Works more than once on a page, and is safe if the snippet is pasted twice.</li>
+<li><strong>Accessibility:</strong> every input is labelled, the term is a radio group, and the result is announced to screen readers shortly after the reader stops adjusting.</li>
+<li><strong>Compliance:</strong> keep the full &quot;illustrative only, not a quote, offer or advice&quot; note. Results exclude fees.</li>
+</ul>
+</section>
+
+<section aria-labelledby="code-h">
+  <h2 id="code-h">Code</h2>
+  <details class="g-code"><summary>HTML (paste into a Custom HTML block)</summary><pre id="code-html"><code>&lt;!-- Place near the section on loan costs or affordability. Illustrative monthly repayment estimate.
+     Set the limits per post with data-min, data-max, data-step, data-amount, data-terms (months), data-term and data-rate (% a year). --&gt;
+&lt;div class=&quot;fb-block fb-calc&quot; data-fb-calc data-min=&quot;1000&quot; data-max=&quot;500000&quot; data-step=&quot;1000&quot; data-amount=&quot;50000&quot; data-terms=&quot;12,24,36&quot; data-term=&quot;24&quot; data-rate=&quot;5&quot;&gt;
+  &lt;span class=&quot;fb-eyebrow&quot;&gt;Repayment calculator&lt;/span&gt;
+  &lt;h3&gt;Estimate your monthly repayments&lt;/h3&gt;
+  &lt;p class=&quot;fb-calc-sub&quot;&gt;Adjust the amount, term and interest rate to see an illustrative repayment for a fixed-rate loan.&lt;/p&gt;
+  &lt;div class=&quot;fb-calc-grid&quot;&gt;
+    &lt;div class=&quot;fb-calc-inputs&quot;&gt;
+      &lt;div class=&quot;fb-calc-field&quot;&gt;
+        &lt;label class=&quot;fb-calc-label&quot;&gt;Loan amount
+          &lt;span class=&quot;fb-calc-box&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;£&lt;/span&gt;&lt;input type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot; data-fb-amount-text&gt;&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;input type=&quot;range&quot; aria-label=&quot;Loan amount&quot; data-fb-amount-range&gt;
+        &lt;div class=&quot;fb-calc-scale&quot; aria-hidden=&quot;true&quot;&gt;&lt;span data-fb-min-label&gt;&lt;/span&gt;&lt;span data-fb-max-label&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;fieldset class=&quot;fb-calc-field fb-calc-terms&quot;&gt;
+        &lt;legend class=&quot;fb-calc-label&quot;&gt;Term&lt;/legend&gt;
+        &lt;div class=&quot;fb-calc-pills&quot; data-fb-terms&gt;&lt;/div&gt;
+      &lt;/fieldset&gt;
+      &lt;div class=&quot;fb-calc-field&quot;&gt;
+        &lt;label class=&quot;fb-calc-label&quot;&gt;Interest rate (a year)
+          &lt;span class=&quot;fb-calc-box fb-calc-box--rate&quot;&gt;&lt;input type=&quot;text&quot; inputmode=&quot;decimal&quot; autocomplete=&quot;off&quot; data-fb-rate&gt;&lt;span aria-hidden=&quot;true&quot;&gt;%&lt;/span&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;fb-calc-out&quot;&gt;
+      &lt;span class=&quot;fb-calc-out-label&quot;&gt;Monthly repayment&lt;/span&gt;
+      &lt;strong class=&quot;fb-calc-monthly&quot; data-fb-monthly&gt;&lt;/strong&gt;
+      &lt;dl class=&quot;fb-calc-totals&quot;&gt;
+        &lt;div&gt;&lt;dt&gt;Total repayable&lt;/dt&gt;&lt;dd data-fb-total&gt;&lt;/dd&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;dt&gt;Total interest&lt;/dt&gt;&lt;dd data-fb-interest&gt;&lt;/dd&gt;&lt;/div&gt;
+      &lt;/dl&gt;
+      &lt;p class=&quot;fb-calc-error&quot; data-fb-error hidden&gt;&lt;/p&gt;
+      &lt;a class=&quot;fb-btn&quot; href=&quot;https://comparemyfunding.co.uk/loan-offer-generator-1230001/&quot;&gt;Compare My Funding&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;fb-sr&quot; aria-live=&quot;polite&quot; data-fb-announce&gt;&lt;/p&gt;
+  &lt;p class=&quot;fb-calc-fine&quot;&gt;Illustrative only. This is not a quote, offer or advice. The starting rate is an example, not a rate offered by Funding Bay or any lender. Figures exclude arrangement and other fees. Actual rates and repayments depend on lender criteria and underwriting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function(){
+  function gbp(v,pence){return v.toLocaleString('en-GB',{style:'currency',currency:'GBP',minimumFractionDigits:pence?2:0,maximumFractionDigits:pence?2:0})}
+  function num(s){var n=parseFloat(String(s).replace(/[^0-9.]/g,''));return isNaN(n)?null:n}
+
+  function init(root){
+    if(root.hasAttribute('data-fb-ready'))return;
+    root.setAttribute('data-fb-ready','');
+    var min=+root.getAttribute('data-min')||1000,max=+root.getAttribute('data-max')||500000,step=+root.getAttribute('data-step')||1000;
+    var terms=(root.getAttribute('data-terms')||'12,24,36').split(',').map(Number);
+    var term=+root.getAttribute('data-term')||terms[0];
+    var amountText=root.querySelector('[data-fb-amount-text]'),range=root.querySelector('[data-fb-amount-range]'),
+        rate=root.querySelector('[data-fb-rate]'),pills=root.querySelector('[data-fb-terms]'),
+        monthly=root.querySelector('[data-fb-monthly]'),total=root.querySelector('[data-fb-total]'),interest=root.querySelector('[data-fb-interest]'),
+        error=root.querySelector('[data-fb-error]'),announce=root.querySelector('[data-fb-announce]'),timer;
+
+    range.min=min;range.max=max;range.step=step;
+    range.value=Math.min(max,Math.max(min,+root.getAttribute('data-amount')||min));
+    amountText.value=(+range.value).toLocaleString('en-GB');
+    rate.value=root.getAttribute('data-rate')||'';
+    root.querySelector('[data-fb-min-label]').textContent=gbp(min);
+    root.querySelector('[data-fb-max-label]').textContent=gbp(max);
+
+    var name='fb-calc-'+Math.random().toString(36).slice(2,8);
+    pills.innerHTML=terms.map(function(t){
+      return '&lt;label class=&quot;fb-calc-pill&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;'+name+'&quot; value=&quot;'+t+'&quot;'+(t===term?' checked':'')+'&gt;&lt;span&gt;'+t+' months&lt;/span&gt;&lt;/label&gt;';
+    }).join('');
+
+    function show(msg){
+      error.textContent=msg;error.hidden=!msg;
+      if(msg){monthly.textContent='\u2013';total.textContent='\u2013';interest.textContent='\u2013'}
+    }
+    function upd(){
+      var p=num(amountText.value),r=num(rate.value),n=+pills.querySelector('input:checked').value;
+      if(p===null||p&lt;min||p&gt;max)return show('Enter an amount between '+gbp(min)+' and '+gbp(max)+'.');
+      if(r===null||r&gt;100)return show('Enter an interest rate between 0% and 100%.');
+      show('');
+      var i=r/100/12,m=i===0?p/n:p*i/(1-Math.pow(1+i,-n)),t=m*n;
+      monthly.textContent=gbp(m,true);total.textContent=gbp(t,true);interest.textContent=gbp(t-p,true);
+      clearTimeout(timer);
+      timer=setTimeout(function(){announce.textContent='Monthly repayment '+gbp(m,true)+' over '+n+' months. Total repayable '+gbp(t,true)+'.'},600);
+    }
+
+    range.addEventListener('input',function(){amountText.value=(+range.value).toLocaleString('en-GB');upd()});
+    amountText.addEventListener('input',function(){var p=num(amountText.value);if(p!==null&amp;&amp;p&gt;=min&amp;&amp;p&lt;=max)range.value=p;upd()});
+    amountText.addEventListener('blur',function(){var p=num(amountText.value);if(p!==null){p=Math.min(max,Math.max(min,p));amountText.value=p.toLocaleString('en-GB');range.value=p;upd()}});
+    rate.addEventListener('input',upd);
+    pills.addEventListener('change',upd);
+    upd();
+  }
+
+  document.querySelectorAll('[data-fb-calc]').forEach(init);
+})();
+&lt;/script&gt;
+</code></pre></details>
+  <details class="g-code"><summary>CSS (base styles plus this component)</summary><pre id="code-css"><code>/* Funding Bay blog components: design tokens and shared base styles.
+   Everything is prefixed fb- so it will not clash with the theme. */
+
+:root{
+  --fb-navy:#11323F; --fb-navy-2:#1c4a5d; --fb-teal:#EE5B3E; --fb-teal-d:#D9472B;
+  --fb-cream:#F3F6FB; --fb-cream-d:#CDDEE6; --fb-grey:#6B7280; --fb-text:#1F2937;
+  --fb-gold:#7FA6B8; --fb-white:#fff;
+  --fb-serif:'Hind Madurai',system-ui,sans-serif; --fb-sans:'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+.fb-block,.fb-block *{box-sizing:border-box}
+.fb-block{font-family:var(--fb-sans);color:var(--fb-text);line-height:1.6;margin:2.2rem 0;font-size:16px}
+.fb-block h3,.fb-block h4{font-family:var(--fb-serif);font-weight:700;color:var(--fb-navy);margin:0 0 .5rem;line-height:1.3}
+.fb-block p{margin:0 0 1rem}
+.fb-block a{text-decoration:none}
+.fb-eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--fb-teal-d);margin-bottom:.6rem}
+.fb-btn{display:inline-block;background:var(--fb-teal);color:#fff !important;padding:.8rem 1.5rem;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;transition:background .2s,transform .2s;text-decoration:none !important;font-family:var(--fb-sans)}
+.fb-btn:hover{background:var(--fb-teal-d);transform:translateY(-1px)}
+.fb-btn--ghost{background:transparent;color:var(--fb-navy) !important;border:2px solid var(--fb-navy);padding:.7rem 1.4rem;border-radius:100px}
+.fb-btn--ghost:hover{background:var(--fb-navy);color:#fff !important}
+.fb-fine{font-size:.78rem;color:rgba(255,255,255,.6);margin:1rem 0 0 !important}
+.fb-sr{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+h2[id],h3[id]{scroll-margin-top:90px}
+
+@media (prefers-reduced-motion:reduce){.fb-block *,.fb-seg,.fb-progress{transition:none !important;animation:none !important}}
+
+/* Repayment calculator */
+.fb-calc{background:var(--fb-white);border:1px solid var(--fb-cream-d);border-radius:18px;padding:2rem;box-shadow:0 8px 30px color-mix(in srgb,var(--fb-navy) 7%,transparent)}
+.fb-calc-sub{color:var(--fb-grey);font-size:.95rem}
+.fb-calc-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1.6rem;align-items:start;margin-top:.4rem}
+.fb-calc-field{margin:0 0 1.3rem;padding:0;border:0;min-width:0}
+.fb-calc-field:last-child{margin-bottom:0}
+.fb-calc-label{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;font-size:.92rem;font-weight:700;color:var(--fb-navy);margin-bottom:.45rem;padding:0}
+.fb-calc-terms .fb-calc-label{display:block}
+.fb-calc-box{display:inline-flex;align-items:center;gap:.25rem;border:1px solid var(--fb-grey);border-radius:10px;padding:.35rem .7rem;background:var(--fb-white);font-family:var(--fb-serif);font-size:1.05rem;color:var(--fb-navy)}
+.fb-calc-box:focus-within{border-color:var(--fb-navy);box-shadow:0 0 0 3px var(--fb-cream-d)}
+.fb-calc-box input{border:0;outline:0;background:transparent;font:inherit;color:inherit;width:6.5rem;text-align:right;padding:0;margin:0}
+.fb-calc-box--rate input{width:3.2rem}
+.fb-calc input[type=range]{display:block;width:100%;margin:.2rem 0 0;accent-color:var(--fb-teal);cursor:pointer}
+.fb-calc input[type=range]:focus-visible{outline:3px solid var(--fb-teal);outline-offset:3px;border-radius:4px}
+.fb-calc-scale{display:flex;justify-content:space-between;font-size:.76rem;color:var(--fb-grey);margin-top:.15rem}
+.fb-calc-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+.fb-calc-pill{position:relative;cursor:pointer;flex:1 1 0;min-width:5.5rem}
+.fb-calc-pill input{position:absolute;opacity:0;width:1px;height:1px}
+.fb-calc-pill span{display:block;text-align:center;white-space:nowrap;border:1px solid var(--fb-grey);border-radius:100px;padding:.45rem .5rem;font-size:.9rem;font-weight:700;color:var(--fb-navy);background:var(--fb-white);transition:background .2s,color .2s}
+.fb-calc-pill:hover span{border-color:var(--fb-navy)}
+.fb-calc-pill input:checked+span{background:var(--fb-navy);border-color:var(--fb-navy);color:var(--fb-white)}
+.fb-calc-pill input:focus-visible+span{outline:3px solid var(--fb-teal);outline-offset:2px}
+.fb-calc-out{background:var(--fb-navy);color:var(--fb-white);border-radius:14px;padding:1.5rem}
+.fb-calc-out-label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--fb-cream-d)}
+.fb-calc-monthly{display:block;font-family:var(--fb-serif);font-size:2.4rem;font-weight:800;line-height:1.15;margin:.2rem 0 1rem;color:var(--fb-white)}
+.fb-calc-totals{margin:0 0 1.2rem;padding:1rem 0 0;border-top:1px solid var(--fb-navy-2);display:grid;gap:.5rem}
+.fb-calc-totals div{display:flex;justify-content:space-between;gap:1rem;font-size:.92rem}
+.fb-calc-totals dt{color:var(--fb-cream-d)}
+.fb-calc-totals dd{margin:0;font-weight:700}
+.fb-calc-error{margin:0 0 1rem !important;padding:.6rem .8rem;border-left:3px solid var(--fb-teal);background:var(--fb-navy-2);font-size:.88rem}
+.fb-calc-error[hidden]{display:none}
+.fb-calc-out .fb-btn{width:100%;text-align:center}
+.fb-calc-out .fb-btn:focus-visible{outline:3px solid var(--fb-white);outline-offset:2px}
+.fb-calc-fine{font-size:.78rem;color:var(--fb-grey);margin:1.2rem 0 0 !important}
+@media (max-width:700px){
+  .fb-calc{padding:1.5rem 1.2rem}
+  .fb-calc-grid{grid-template-columns:1fr}
+  .fb-calc-monthly{font-size:2rem}
+}
+</code></pre></details>
+</section>
+</main>
+<footer class="g-foot">Internal component library for fundingbay.co.uk blog posts. Demo content is illustrative only.</footer>
+<script src="../gallery.js"></script>
+</body></html>

@@ -4,6 +4,7 @@
   { "slug": "contents",      "name": "Contents list",         "summary": "Numbered jump links to each section of the post." },
   { "slug": "route-finder",  "name": "Route finder quiz",     "summary": "Three quick questions that suggest which funding routes to discuss first." },
   { "slug": "stack-builder", "name": "Funding stack builder", "summary": "Sliders that build a funding stack against the total needed, with a live gap check." },
+  { "slug": "repayment-calculator", "name": "Repayment calculator", "summary": "Estimates monthly repayments and total cost for a fixed-rate loan, with an illustrative-only note." },
   { "slug": "match-up",      "name": "Match-up grid",         "summary": "Pairs what a business has with the funding types that may suit it." },
   { "slug": "checklist",     "name": "Interactive checklist", "summary": "A tick-off document checklist with a progress meter and a CTA at the end." },
   { "slug": "cta-strip",     "name": "CTA strip",             "summary": "A navy mid-article strip with a heading, one line and a button." },

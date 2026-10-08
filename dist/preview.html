@@ -92,6 +92,48 @@ a{color:#D9472B}
   <p class="fb-fine" style="margin-top:1rem">Illustrative, fictional assumptions. This is not a market norm, lender term or indication of eligibility. A balanced schedule does not prove the repayments are affordable.</p>
 </div>
 
+<h2>Repayment calculator</h2>
+<p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
+<!-- Place near the section on loan costs or affordability. Illustrative monthly repayment estimate.
+     Set the limits per post with data-min, data-max, data-step, data-amount, data-terms (months), data-term and data-rate (% a year). -->
+<div class="fb-block fb-calc" data-fb-calc data-min="1000" data-max="500000" data-step="1000" data-amount="50000" data-terms="12,24,36" data-term="24" data-rate="5">
+  <span class="fb-eyebrow">Repayment calculator</span>
+  <h3>Estimate your monthly repayments</h3>
+  <p class="fb-calc-sub">Adjust the amount, term and interest rate to see an illustrative repayment for a fixed-rate loan.</p>
+  <div class="fb-calc-grid">
+    <div class="fb-calc-inputs">
+      <div class="fb-calc-field">
+        <label class="fb-calc-label">Loan amount
+          <span class="fb-calc-box"><span aria-hidden="true">£</span><input type="text" inputmode="numeric" autocomplete="off" data-fb-amount-text></span>
+        </label>
+        <input type="range" aria-label="Loan amount" data-fb-amount-range>
+        <div class="fb-calc-scale" aria-hidden="true"><span data-fb-min-label></span><span data-fb-max-label></span></div>
+      </div>
+      <fieldset class="fb-calc-field fb-calc-terms">
+        <legend class="fb-calc-label">Term</legend>
+        <div class="fb-calc-pills" data-fb-terms></div>
+      </fieldset>
+      <div class="fb-calc-field">
+        <label class="fb-calc-label">Interest rate (a year)
+          <span class="fb-calc-box fb-calc-box--rate"><input type="text" inputmode="decimal" autocomplete="off" data-fb-rate><span aria-hidden="true">%</span></span>
+        </label>
+      </div>
+    </div>
+    <div class="fb-calc-out">
+      <span class="fb-calc-out-label">Monthly repayment</span>
+      <strong class="fb-calc-monthly" data-fb-monthly></strong>
+      <dl class="fb-calc-totals">
+        <div><dt>Total repayable</dt><dd data-fb-total></dd></div>
+        <div><dt>Total interest</dt><dd data-fb-interest></dd></div>
+      </dl>
+      <p class="fb-calc-error" data-fb-error hidden></p>
+      <a class="fb-btn" href="https://comparemyfunding.co.uk/loan-offer-generator-1230001/">Compare My Funding</a>
+    </div>
+  </div>
+  <p class="fb-sr" aria-live="polite" data-fb-announce></p>
+  <p class="fb-calc-fine">Illustrative only. This is not a quote, offer or advice. The starting rate is an example, not a rate offered by Funding Bay or any lender. Figures exclude arrangement and other fees. Actual rates and repayments depend on lender criteria and underwriting.</p>
+</div>
+
 <h2>Match-up grid</h2>
 <p>Placeholder article paragraph so you can see how the component sits between sections of the real post.</p>
 <!-- Place under the H2 "Match the Finance to the Target Assets". Visual version of the bullet list. You can delete the bullet list once this is in. -->
